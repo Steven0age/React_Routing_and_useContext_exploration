@@ -13,34 +13,37 @@ function App() {
   const [sunCount, setSunCount] = useState(0);
   const [cloudCount, setCloudcount] = useState(0);
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Root />,
-      errorElement: <ErrorPage />,
-      children: [
-        { index: true, element: <Index /> },
-        {
-          path: "/first",
-          children: [
-            { index: true, element: <FirstRoute /> },
-            {
-              path: ":itemId",
-              children: [
-                { index: true, element: <SecondRoute /> },
-                { path: ":thridId", element: <FirstRoute /> },
-              ],
-            },
-          ],
-        },
-        { path: "/second", element: <SecondRoute /> },
-      ],
-    },
-    {
-      path: "/third",
-      element: <FirstRoute />,
-    },
-  ]);
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <Root />,
+        errorElement: <ErrorPage />,
+        children: [
+          { index: true, element: <Index /> },
+          {
+            path: "first",
+            children: [
+              { index: true, element: <FirstRoute /> },
+              {
+                path: ":itemId",
+                children: [
+                  { index: true, element: <SecondRoute /> },
+                  { path: ":thridId", element: <FirstRoute /> },
+                ],
+              },
+            ],
+          },
+          { path: "second", element: <SecondRoute /> },
+        ],
+      },
+      {
+        path: "/third",
+        element: <FirstRoute />,
+      },
+    ],
+    { basename: "/React_Routing_and_useContext_exploration/" }
+  );
 
   return (
     <CloudClickerContext.Provider value={{ cloudCount, setCloudcount }}>

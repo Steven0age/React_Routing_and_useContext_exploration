@@ -20,7 +20,7 @@ function Root() {
               <Link to="/second">open Second Route</Link>
             </li>
             <li>
-              <Link to="/third">open Third Route</Link>
+              <Link to="/third">open Third Route (= First Route only)</Link>
             </li>
           </ul>
         </nav>
